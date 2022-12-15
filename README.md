@@ -44,3 +44,13 @@ function retornarConexion(){
 ?>
 
 ```
+
+## images.sql
+
+```
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `path` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
