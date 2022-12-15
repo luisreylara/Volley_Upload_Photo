@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -36,6 +37,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 private ImageButton ib1;
 private Button button1;
+    ProgressDialog progressDialog;
 Bitmap bitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,11 @@ Bitmap bitmap;
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog = ProgressDialog.show(MainActivity.this,
+                        "Subiendo imágen",
+                        "Espere por favor",
+                        true,
+                        false);
                 ByteArrayOutputStream byteArrayOutputStream;
                 byteArrayOutputStream= new ByteArrayOutputStream();
                 if (bitmap!=null){
@@ -93,11 +100,13 @@ Bitmap bitmap;
                                     }else{
                                         Toast.makeText(getApplicationContext(), "Failed to  Upload Image:"+response, Toast.LENGTH_SHORT).show();
                                     }
+                                    progressDialog.dismiss();
                                 }
                             }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Log.d("rey", "That didn't work!");
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
                         }
