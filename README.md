@@ -1,4 +1,4 @@
-# Volley_Upload_Photo
+# Volley_Upload_Photo, PHp + Mysql+ Android+ Java+ Volley
 
 ## upload.php
 ```
@@ -53,4 +53,8 @@ CREATE TABLE `images` (
   `path` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
+## Source & Bib
+* How to Upload Image to Server in Android Studio
+* https://www.youtube.com/watch?v=YMUGyIjV8Yw
+
 
